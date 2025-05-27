@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "Job Portal Application",
   "main": "backend/server.js",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
     "start": "node backend/server.js",
     "server": "cross-env PORT=5003 nodemon backend/server.js",
     "client": "cross-env PORT=3001 npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "cd frontend && npm run build",
+    "build": "cd frontend && npm install && npm run build",
     "install-client": "cd frontend && npm install",
     "heroku-postbuild": "npm run install-client && npm run build"
   },
@@ -28,7 +31,8 @@
     "multer-storage-cloudinary": "^4.0.0",
     "react-redux": "^9.2.0",
     "redux": "^5.0.1",
-    "validator": "^13.11.0"
+    "validator": "^13.11.0",
+    "body-parser": "^1.20.2"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
