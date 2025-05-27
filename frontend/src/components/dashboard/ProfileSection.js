@@ -134,7 +134,7 @@ const ProfileSection = ({ user, onRefresh }) => {
     };
 
     fetchUserData();
-  }, [user, refreshData]);
+  }, [user, refreshData, formData]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

@@ -598,7 +598,6 @@ const Login = () => {
             className="toggle"
             sx={{
               backgroundColor: '#5c6bc0',
-              height: '100%',
               background: 'linear-gradient(to right, #5c6bc0, #34167b)',
               color: '#fff',
               position: 'relative',
