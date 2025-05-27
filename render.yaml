@@ -1,0 +1,35 @@
+services:
+  - type: web
+    name: futurelift-backend
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MONGO_URI
+        value: mongodb+srv://futurelift_admin:FutureLift%40hit@futureliftdb.0jhdaqa.mongodb.net/?retryWrites=true&w=majority&appName=FutureLiftDB
+      - key: JWT_SECRET
+        value: futureliftjobportalsecret
+      - key: PORT
+        value: 5001
+      - key: CLOUDINARY_CLOUD_NAME
+        value: dlpgsnezh
+      - key: CLOUDINARY_API_KEY
+        value: 912588377895983
+      - key: CLOUDINARY_API_SECRET
+        value: CoIzL6jZmXbW4_kS3BHeSBqfXyg
+      - key: DEFAULT_ADMIN_ACCESS_CODE
+        value: FUTURELIFT2024
+
+  - type: static
+    name: futurelift-frontend
+    buildCommand: cd frontend && npm install && npm run build
+    publishDir: frontend/build
+    envVars:
+      - key: REACT_APP_API_URL
+        value: https://futurelift-backend.onrender.com/api
+      - key: REACT_APP_CLOUDINARY_CLOUD_NAME
+        value: dlpgsnezh
+      - key: REACT_APP_CLOUDINARY_UPLOAD_PRESET
+        value: ml_default
+      - key: REACT_APP_APP_NAME
+        value: FutureLift Job Portal 
